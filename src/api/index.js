@@ -1,11 +1,25 @@
 import axios from 'axios'
 
+const API = axios.create({
+  baseURL : 'http://localhost:5000'
+})
+
 //backend url
-const  url = 'https://mern-app-cui.herokuapp.com/posts'
+// 'https://mern-app-cui.herokuapp.com/posts'
 
-export const fetchPosts = () => axios.get(url)
-export const createPost = (newPost) => axios.post(url, newPost)
-export const updatePost = (id, updatePost) => axios.patch(`${url}/${id}`, updatePost)
-export const deletePost = (id) => axios.delete(`${url}/${id}`)
+// send token back to backend
+API.interceptors.request.use((req )=> {
+  if(localStorage.getItem('profile')){
+    req.headers.authorization = `Bearer ${JSON.parse(localStorage.getItem('profile').token)}`
+  }
+  return req 
+})
 
-export const likePost = (id) => axios.patch(`${url}/${id}/likePost`, likePost)
+export const fetchPosts = () => API.get('/posts')
+export const createPost = (newPost) => API.post('/posts', newPost)
+export const updatePost = (id, updatePost) => API.patch(`/posts/${id}`, updatePost)
+export const deletePost = (id) => API.delete(`/posts/${id}`)
+export const likePost = (id) => API.patch(`/posts/${id}/likePost`, likePost)
+
+export const signIn = (formData) => API.post('/users/signin', formData)
+export const signUp = (formData) => API.post('/users/signup', formData)
