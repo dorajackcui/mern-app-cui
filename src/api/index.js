@@ -1,16 +1,16 @@
 import axios from 'axios'
 
 const API = axios.create({
-  baseURL : 'http://localhost:5000'
+  baseURL : 'https://mern-app-cui.herokuapp.com'
 })
 
 //backend url
-// 'https://mern-app-cui.herokuapp.com/posts'
+// 'https://mern-app-cui.herokuapp.com'
 
 // send token back to backend
 API.interceptors.request.use((req )=> {
   if(localStorage.getItem('profile')){
-    req.headers.authorization = `Bearer ${JSON.parse(localStorage.getItem('profile').token)}`
+    req.headers.authorization = `Bearer ${JSON.parse(localStorage.getItem('profile')).token}`
   }
   return req 
 })
