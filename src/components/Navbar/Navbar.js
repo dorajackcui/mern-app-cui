@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import { AppBar, Typography, Button, Toolbar, Avatar } from '@material-ui/core'
 import memories from '../../images/memories.png'
 import useStyle from './styles'
