@@ -18,20 +18,18 @@ function Home() {
   }, [dispatch, selectedPost])
 
   return (
-    <Container maxWidth='lg'>
-      <Grow in> 
-        <Container>
+    <Grow in> 
+      <Container maxWidth='xl'>  
           <Grid container justify='space-between' alignItems='stretch' spacing={3}>
-            <Grid item xs={12} sm={7}>
+            <Grid item xs={12} sm={6} md={9}>
               <Posts setSelectedPost={setSelectedPost}/>
             </Grid>
-            <Grid item xs={12} sm={4}>
+            <Grid item xs={12} sm={6} md={3}>
               <Form selectedPost={selectedPost} setSelectedPost={setSelectedPost}/>
             </Grid>
           </Grid>
-        </Container>
-      </Grow>
-    </Container>
+      </Container>
+    </Grow>
   );
 }
 
