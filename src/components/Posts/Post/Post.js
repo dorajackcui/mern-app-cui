@@ -31,7 +31,7 @@ export default function Post ({post, setSelectedPost}) {
     return <><ThumbUpAltOutlined fontSize="small" />&nbsp;Like</>
   }
   return (
-    <Card className={classes.card}>
+    <Card className={classes.card} elevation={6}>
       <CardMedia className={classes.media} image={post.selectedFile} title={post.title} />
       <div className={classes.overlay}>
         <Typography variant='body2'>{post.name}</Typography>
@@ -41,7 +41,7 @@ export default function Post ({post, setSelectedPost}) {
       <div className={classes.overlay2}>
         {userlogin && 
         <Button style={{color:'white'}} size='small' onClick={()=>{setSelectedPost(post._id)}}>
-          <MoreHorizIcon fontSize='default' />
+          <MoreHorizIcon fontSize='medium' />
         </Button>
         }
       </div>

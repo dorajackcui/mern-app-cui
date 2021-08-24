@@ -105,7 +105,7 @@ export default function Auth() {
             onFailure={googleFailure}
             cookiePolicy='single_host_origin'
           />
-          <Grid container justify='flex-end'>
+          <Grid container justifyContent='flex-end'>
             <Grid item>
               <Button onClick={()=>{setIsSignUp(prev => !prev)}}>
                 {isSignUp ? 'Already have an account ? Sign In' : "Don't have an account ? Sign Up" }

@@ -32,7 +32,7 @@ export default function Navbar() {
 
 
   return (
-    <AppBar className={classes.appBar} position='static' color='inherit'>
+    <AppBar className={classes.appBar} position='static' color='inherit' elevation={6}>
       <div>
         <Typography component={Link} to='/' className={classes.heading} variant='h2' align='center'>Memories</Typography>
         <img  className={classes.image} src={memories} alt='memories' height='60'/>
@@ -41,8 +41,8 @@ export default function Navbar() {
         {user ? (
           <div className={classes.profile}>
             <Avatar className={classes.purple} alt={user.result.name} src={user.result.imageUrl}>{user.result.name.charAt(0)}</Avatar>
-            <Typography className={classes.userName} varait='h6'>{user.result.name}</Typography>
-            <Button variant='contained' className={classes.logout} color='secondary' onClick={logout} >Logout</Button>
+            {/* <Typography className={classes.userName} varait='body2'>{user.result.name}</Typography> */}
+            <Button variant='contained' size="small" className={classes.logout} color='secondary' onClick={logout} >Logout</Button>
           </div>
         )  
         : (

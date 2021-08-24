@@ -52,7 +52,7 @@ export default function Form({selectedPost, setSelectedPost}) {
   if (!user) {
 
     return(
-      <Paper className={classes.paper} >
+      <Paper className={classes.paper} elevation={6} >
         <Typography variant='h6' align='center'>
           Please Sign In to create your own post.
         </Typography>
@@ -63,7 +63,7 @@ export default function Form({selectedPost, setSelectedPost}) {
 
   return (
 
-    <Paper className={classes.paper}>
+    <Paper className={classes.paper} elevation={6}>
       <form autoComplete='off' noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>
         <Typography variant='h6'>{selectedPost ? 'Edit a Memory' : 'Create a Memory'}</Typography>
         <TextField name='title' variant='outlined' label='Title' fullWidth value={postData.title} onChange={(e) => setPostData({ ...postData, title: e.target.value })} />
