@@ -1,11 +1,11 @@
 import axios from 'axios'
 
 const API = axios.create({
-  baseURL : 'http://localhost:5000'
+  // baseURL : 'http://localhost:5000'
+  baseURL : 'https://mern-app-cui.herokuapp.com'
 })
 
-//backend url
-// 'https://mern-app-cui.herokuapp.com'
+
 
 // send token back to backend
 API.interceptors.request.use((req )=> {
