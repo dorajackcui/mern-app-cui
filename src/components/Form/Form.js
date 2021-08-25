@@ -3,14 +3,16 @@ import useStyles from './sytles'
 import {TextField, Button, Typography, Paper} from '@material-ui/core'
 import FileBase64 from 'react-file-base64'
 import { useDispatch, useSelector } from 'react-redux'
-import {createPost, updatePost} from '../../actions/posts'
+import { useHistory } from 'react-router-dom'
+import { createPost, updatePost } from '../../actions/posts'
 
 export default function Form({selectedPost, setSelectedPost}) {
   const classes =  useStyles()
   const dispatch = useDispatch()
-  const currentPost = useSelector(state => selectedPost ? state.posts.find(p => p._id === selectedPost): null)
+  const currentPost = useSelector(state => selectedPost ? state.posts.posts.find(p => p._id === selectedPost): null)
   const user = JSON.parse(localStorage.getItem('profile'))
   const userName = user?.result.name
+  const history = useHistory()
 
   const [postData, setPostData] = useState({
     name:'',
@@ -30,9 +32,9 @@ export default function Form({selectedPost, setSelectedPost}) {
     e.preventDefault()
 
     if(selectedPost){
-      dispatch(updatePost(selectedPost, {...postData, name: userName}))
+      dispatch(updatePost(selectedPost, {...postData, name: userName}, history))
     }else{
-      dispatch(createPost({...postData, name: userName}))
+      dispatch(createPost({...postData, name: userName}, history))
     }
 
     clear()
