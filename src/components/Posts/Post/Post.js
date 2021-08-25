@@ -32,28 +32,30 @@ export default function Post ({post, setSelectedPost}) {
 
     return <><ThumbUpAltOutlined fontSize="small" />&nbsp;Like</>
   }
+  
   return (
     <Card className={classes.card} elevation={6}>
-      <CardActionArea component={Link} to={`/posts/${post._id}`} >
-        <CardMedia className={classes.media} image={post.selectedFile} title={post.title} />
-        <div className={classes.overlay}>
-          <Typography variant='body2'>{post.name}</Typography>
-          <Typography variant='body2'>{moment(post.createdAt).fromNow()}</Typography>
-        </div>
       
-        <div className={classes.overlay2}>
-          {userlogin && 
-          <Button style={{color:'white'}} size='small' onClick={()=>{setSelectedPost(post._id)}}>
-            <MoreHorizIcon fontSize='medium' />
-          </Button>
-          }
-        </div>
+      <CardMedia className={classes.media} image={post.selectedFile} title={post.title} />
+      <div className={classes.overlay}>
+        <Typography variant='body2'>{post.name}</Typography>
+        <Typography variant='body2'>{moment(post.createdAt).fromNow()}</Typography>
+      </div>
+    
+      <div className={classes.overlay2}>
+        {userlogin && 
+        <Button style={{color:'white'}} size='small' onClick={()=>{setSelectedPost(post._id)}}>
+          <MoreHorizIcon fontSize='medium' />
+        </Button>
+        }
+      </div>
+      <CardActionArea component={Link} to={`/posts/${post._id}`} >
         <div className={classes.details}>
           <Typography variant='body2' color='textSecondary'>{post.tags.map((tag) => `#${tag} `)}</Typography>
         </div>
         <Typography className={classes.title} variant='h5' gutterBottom>{post.title}</Typography>
         <CardContent>
-        <Typography variant="body2" color="textSecondary" component="p">{post.message.split(' ').splice(0, 20).join(' ')}...</Typography>
+        <Typography variant="body2" color="textSecondary" component="p">{post.message.split(' ').splice(0, 20).join(' ')}... <b>More</b></Typography>
         </CardContent>
       </CardActionArea>
       <CardActions className={classes.cardActions}>

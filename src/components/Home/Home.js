@@ -28,7 +28,7 @@ function Home() {
   const [tags, setTags] = useState([])
 
   const handleKeyPress = (e) => {
-    if(e.keyCode === '13') {
+    if(e.key === 'Enter') {
       searchPost()
     }
   }

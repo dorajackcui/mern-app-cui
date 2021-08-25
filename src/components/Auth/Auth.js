@@ -94,7 +94,8 @@ export default function Auth() {
               <Button 
               className={classes.googleButton} 
               color='primary' 
-              fullWidth onClick={renderProps.onClick} 
+              fullWidth 
+              onClick={renderProps.onClick} 
               disabled={renderProps.disabled} 
               startIcon={<Icon />} 
               variant='contained'> 

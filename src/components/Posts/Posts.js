@@ -10,7 +10,7 @@ export default function Posts({setSelectedPost}){
   const classes = useStyles()
   const { posts, isLoading } = useSelector(state => state.posts)
 
-  // if (!posts?.length && !isLoading) return 'No posts'
+  if (!posts?.length && !isLoading) return 'No posts'
 
   
   return (
