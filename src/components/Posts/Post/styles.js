@@ -20,9 +20,13 @@ export default makeStyles({
     borderRadius: '15px',
     height: '100%',
     position: 'relative',
-    transition: '.2s',
+    // transition: '.2s',
+    boxShadow: '20px 38px 34px -26px hsla(0,0%,0%,.2)',
+    // borderRadius: '255px 15px 225px 15px/15px 225px 15px 255px',
+    // border:'dashed 2px #41403E',
     '&:hover': {
-      transform:'translateY(-0.5rem)'
+      // transform:'translateY(-0.5rem)',
+      boxShadow:'2px 8px 4px -6px hsla(0,0%,0%,.3)',
     }
   },
   overlay: {

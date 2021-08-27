@@ -46,7 +46,7 @@ function Home() {
   }  
 
   return (
-    <Grow in style={{ transformOrigin: '0 0 0' }} timeout='auto' > 
+    <Grow in > 
       <Container maxWidth='xl'>  
           <Grid container justifyContent='space-between' alignItems='stretch' spacing={3} className={classes.gridContainer}>
             <Grid item xs={12} sm={9} md={9}>
@@ -74,9 +74,9 @@ function Home() {
                 />
                 <Button onClick={searchPost} color="primary" variant="contained"> Search</Button>
               </AppBar>
-              <Form elevation={6} selectedPost={selectedPost} setSelectedPost={setSelectedPost}/>
+              <Form elevation={4} selectedPost={selectedPost} setSelectedPost={setSelectedPost}/>
               {(!searchQuery && !tags.length) && (
-                <Paper elevation={6} className={classes.pagination}>
+                <Paper elevation={4} className={classes.pagination}>
                   <Paginate page={page}/>
                 </Paper>
               )}

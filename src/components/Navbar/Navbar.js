@@ -32,7 +32,7 @@ export default function Navbar() {
 
 
   return (
-    <AppBar className={classes.appBar} position='static' color='inherit' elevation={6}>
+    <AppBar className={classes.appBar} position='static' color='inherit' elevation={2}>
       <div>
         <Typography component={Link} to='/posts' className={classes.heading} variant='h2' align='center'>Memories</Typography>
         <img  className={classes.image} src={memories} alt='memories' height='60'/>

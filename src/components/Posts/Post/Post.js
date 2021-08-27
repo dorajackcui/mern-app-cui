@@ -1,6 +1,6 @@
 import React from 'react'
 import useStyles from './styles'
-import { Card, CardActions, CardContent, CardMedia, Button, Typography, CardActionArea } from '@material-ui/core'
+import { Card, CardActions, CardContent, CardMedia, Button, Typography, CardActionArea, Slide } from '@material-ui/core'
 import { Link } from 'react-router-dom'
 import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt'
 import ThumbUpAltOutlined from '@material-ui/icons/ThumbUpAltOutlined';
@@ -34,8 +34,7 @@ export default function Post ({post, setSelectedPost}) {
   }
   
   return (
-    <Card className={classes.card} elevation={6}>
-      
+    <Card className={classes.card} elevation={4}>
       <CardMedia className={classes.media} image={post.selectedFile} title={post.title} />
       <div className={classes.overlay}>
         <Typography variant='body2'>{post.name}</Typography>
@@ -60,16 +59,15 @@ export default function Post ({post, setSelectedPost}) {
       </CardActionArea>
       <CardActions className={classes.cardActions}>
           <Button size='small' color='primary' onClick={()=> {dispatch(likePost(post._id))}}>
-             <Likes />
+            <Likes />
           </Button>
           {userlogin && (
           < Button size='small' color='primary' onClick={() => {dispatch(deletePost(post._id))}}>
             <DeleteIcon fontSize='small'/>
             Delete
           </Button>
-            
+      
           )}
-          
       </CardActions>
     </Card>
   )
