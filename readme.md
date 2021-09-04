@@ -1,4 +1,4 @@
-## MERN project
+## MERN Posts App
 
 This project project is based on [this](https://youtu.be/ngc9gnGgUdA) MERN Stack tutorial, for learning purposes.
 
