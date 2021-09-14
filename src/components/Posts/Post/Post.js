@@ -1,6 +1,6 @@
 import React from 'react'
 import useStyles from './styles'
-import { Card, CardActions, CardContent, CardMedia, Button, Typography, CardActionArea, Slide } from '@material-ui/core'
+import { Card, CardActions, CardContent, CardMedia, Button, Typography, CardActionArea } from '@material-ui/core'
 import { Link } from 'react-router-dom'
 import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt'
 import ThumbUpAltOutlined from '@material-ui/icons/ThumbUpAltOutlined';

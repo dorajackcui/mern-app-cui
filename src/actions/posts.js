@@ -18,6 +18,7 @@ export const getPostById = (id) => async(dispatch) => {
   try {
     dispatch ({ type: START_LOADING })
     const { data } = await api.fetchPostById(id)
+    
     dispatch({ type:FETCH_POST_DETAIL, payload: data })
     dispatch ({ type: END_LOADING })
   } catch (error) {

@@ -23,11 +23,11 @@ const posts = (state = { isLoading:true, posts:[] }, action) => {
         totalPages: action.payload.totalPages,
       }
 
-    // case FETCH_POST_DETAIL:
-    //   return {
-    //     ...state,
-    //     posts: action.payload,
-    //   }
+    case FETCH_POST_DETAIL:
+      return {
+        ...state,
+        post: action.payload,
+      }
 
     case FETCH_BY_SEARCH:
       return {
