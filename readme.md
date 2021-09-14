@@ -8,6 +8,7 @@ This project project is based on [this](https://youtu.be/ngc9gnGgUdA) MERN Stack
 
 ## Features
 
+- [x] Recommended System
 - [x] Pagination
 - [x] Search by Tag & Title
 - [x] Login with Email (JWT)
