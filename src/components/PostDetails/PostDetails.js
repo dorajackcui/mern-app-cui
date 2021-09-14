@@ -33,7 +33,7 @@ function PostDetails() {
     );
   }
   
-  const recommendedPosts = posts.filter(({ _id }) => _id !== post._id).slice(0,4);
+  const recommendedPosts = posts?.filter(({ _id }) => _id !== post._id).slice(0,4);
   const openPost = (_id) => history.push(`/posts/${_id}`);
 
   return (
