@@ -2,7 +2,6 @@ import { makeStyles } from '@material-ui/core/styles';
 
 export default makeStyles((theme) => ({
   media: {
-    borderRadius: '20px',
     objectFit: 'cover',
     width: '100%',
     maxHeight: '600px',
@@ -11,6 +10,7 @@ export default makeStyles((theme) => ({
   card: {
     display: 'flex',
     width: '100%',
+    justifyContent:"space-between",
     [theme.breakpoints.down('sm')]: {
       flexWrap: 'wrap',
       flexDirection: 'column',
@@ -19,7 +19,8 @@ export default makeStyles((theme) => ({
   section: {
     borderRadius: '20px',
     margin: '10px',
-    flex: 1,
+    
+    flexBasis:"50%",
   },
   imageSection: {
     marginLeft: '20px',
@@ -43,17 +44,30 @@ export default makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-between',
-    flexBasis:"33%",
+    flexBasis:"25%",
     borderRadius: '15px',
     height: '100%',
     position: 'relative',
-    
-    boxShadow:'2px 8px 4px -6px hsla(0,0%,0%,.3)',
+    boxShadow: '20px 38px 34px -26px hsla(0,0%,0%,.2)',
+   
    
     '&:hover': {
       // transform:'translateY(-0.5rem)',
-      boxShadow: '20px 38px 34px -26px hsla(0,0%,0%,.2)',
+      
+      boxShadow:'2px 8px 4px -6px hsla(0,0%,0%,.3)',
     }
+  },
+
+  recomSection: {
+    borderRadius: '20px',
+    margin: '10px',
+    flex: 1,
+  },
+  cardMedia: {
+    height: 0,
+    paddingTop: '56.25%',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    backgroundBlendMode: 'darken',
   },
 
   loadingPaper: {

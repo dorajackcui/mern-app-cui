@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Paper, Typography, CircularProgress, Divider, CardActionArea, Card, Grow } from '@material-ui/core/';
+import { Paper, Typography, CircularProgress, Divider, CardActionArea, Card, CardMedia, Grow } from '@material-ui/core/';
 import { useDispatch, useSelector } from 'react-redux';
 import moment from 'moment';
 import { useParams, useHistory } from 'react-router-dom';
@@ -32,8 +32,8 @@ function PostDetails() {
       </Paper>
     );
   }
-
-  const recommendedPosts = posts.filter(({ _id }) => _id !== post._id).slice(0,3);
+  
+  const recommendedPosts = posts.filter(({ _id }) => _id !== post._id).slice(0,4);
   const openPost = (_id) => history.push(`/posts/${_id}`);
 
   return (
@@ -49,17 +49,18 @@ function PostDetails() {
         </div>
       </div>  
         {!!recommendedPosts.length && (
-        <div className={classes.section}>
+        <div className={classes.recomSection}>
           <Typography gutterBottom variant="h5">You might also like:</Typography>
           <Divider />
           <div className={classes.recommendedPosts}>
             {recommendedPosts.map(({ title, message, selectedFile, _id }) => (
-              <Grow in>
-                <Card  className={classes.recommendedPost} elevation={2}>
-                  <CardActionArea onClick={() => openPost(_id)} key={_id}>
+              <Grow in key={_id}>
+                <Card  className={classes.recommendedPost} elevation={2} > 
                     <Typography gutterBottom variant="h6">{title}</Typography>
+                  <CardActionArea onClick={() => openPost(_id)} >
                     <Typography gutterBottom variant="subtitle2">{message.split(' ').splice(0, 15).join(' ')} ...<b>More</b></Typography>
-                    <img src={selectedFile} width="200px" />
+                    <CardMedia className={classes.cardMedia} image={selectedFile} title={title} />
+                    
                   </CardActionArea>
                 </Card>
               </Grow>
