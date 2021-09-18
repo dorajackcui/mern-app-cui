@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { Paper, Typography, CircularProgress, Divider, CardActionArea, Card, CardMedia, Grow } from '@material-ui/core/';
 import { useDispatch, useSelector } from 'react-redux';
-import moment from 'moment';
 import { useParams, useHistory } from 'react-router-dom';
 
 import { getPostById, getPostsBySearch } from '../../actions/posts';
@@ -17,13 +16,13 @@ function PostDetails() {
 
   useEffect(() => {
     dispatch(getPostById(id));
-  }, [id]);
+  }, [id, dispatch]);
 
   useEffect(() => {
     if (post) {
       dispatch(getPostsBySearch({ search: 'none', tags: post?.tags.join(',') }));
     }
-  }, [post]);
+  }, [post, dispatch]);
 
   if (isLoading) {
     return (
@@ -33,7 +32,7 @@ function PostDetails() {
     );
   }
   
-  const recommendedPosts = posts?.filter(({ _id }) => _id !== post._id).slice(0,4);
+  const recommendedPosts = posts?.filter(( p ) => p._id !== post._id).slice(0,4);
   const openPost = (_id) => history.push(`/posts/${_id}`);
 
   return (

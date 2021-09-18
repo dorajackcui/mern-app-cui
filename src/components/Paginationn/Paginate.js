@@ -10,7 +10,7 @@ export default function Paginate({ page }) {
   const classes = useStyle()
   const dispatch = useDispatch()
 
-  const { posts, totalPages } = useSelector(state => state.posts )
+  const { totalPages } = useSelector(state => state.posts )
 
   useEffect(() => {
     
