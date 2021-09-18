@@ -31,7 +31,7 @@ export default makeStyles((theme) => ({
   recommendedPosts: {
     display: 'flex',
     marginTop:'20px',
-    justifyContent:"space-between",
+    justifyContent:"flex-start",
     [theme.breakpoints.down('sm')]: {
       
       flexDirection: 'column',

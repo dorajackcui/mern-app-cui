@@ -9,10 +9,11 @@ import useStyles from './styles';
 
 function PostDetails() {
   const {id} = useParams()
-  const {post, posts, isLoading } = useSelector((state) => state.posts);
+  const { post, posts, isLoading } = useSelector((state) => state.posts);
   const dispatch = useDispatch();
   const history = useHistory();
   const classes = useStyles();
+  
 
   useEffect(() => {
     dispatch(getPostById(id));
@@ -24,6 +25,10 @@ function PostDetails() {
     }
   }, [post, dispatch]);
 
+  const recommendedPosts = posts?.filter(( p ) => p?._id !== post?._id).slice(0,4);
+  
+  const openPost = (_id) => history.push(`/posts/${_id}`);
+  
   if (isLoading) {
     return (
       <Paper elevation={2} className={classes.loadingPaper}>
@@ -32,21 +37,20 @@ function PostDetails() {
     );
   }
   
-  const recommendedPosts = posts?.filter(( p ) => p._id !== post._id).slice(0,4);
-  const openPost = (_id) => history.push(`/posts/${_id}`);
-
   return (
     <Paper style={{ padding: '20px', borderRadius: '15px' }} elevation={2}>
-      <div className={classes.card}>
-        <div className={classes.section}>
-          <Typography variant="h3" component="h2" gutterBottom>{post.title}</Typography>
-          <Typography gutterBottom variant="body1" component="p">{post.message}</Typography>
-          <Typography gutterBottom variant="body2" color="textSecondary" component="h2">{post.tags.map((tag) => `#${tag} `)}</Typography>
-        </div>
-        <div className={classes.imageSection}>
-          <img className={classes.media} src={post.selectedFile || 'https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png'} alt={post.title} />
-        </div>
-      </div>  
+      {!!post && (
+        <div className={classes.card}>
+          <div className={classes.section}>
+            <Typography variant="h3" component="h2" gutterBottom>{post.title}</Typography>
+            <Typography gutterBottom variant="body1" component="p">{post.message}</Typography>
+            <Typography gutterBottom variant="body2" color="textSecondary" component="h2">{post.tags.map((tag) => `#${tag} `)}</Typography>
+          </div>
+          <div className={classes.imageSection}>
+            <img className={classes.media} src={post.selectedFile || 'https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png'} alt={post.title} />
+          </div>
+        </div> 
+      )} 
         {!!recommendedPosts.length && (
         <div className={classes.recomSection}>
           <Typography gutterBottom variant="h5">You might also like:</Typography>
